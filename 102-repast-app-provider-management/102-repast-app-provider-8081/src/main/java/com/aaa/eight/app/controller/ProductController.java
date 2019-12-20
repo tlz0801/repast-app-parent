@@ -20,11 +20,6 @@ public class ProductController {
 
     @PostMapping("/all")
     public List<Product> all() {
-        try {
-            return productService.selectAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+            return  productService.getMapper().selectAll();
     }
 }
