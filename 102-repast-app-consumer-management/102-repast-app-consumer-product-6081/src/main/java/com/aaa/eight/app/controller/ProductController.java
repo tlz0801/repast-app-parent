@@ -22,11 +22,11 @@ public class ProductController extends BaseController {
     @Autowired
     private IRepastService repastService;
 
-    @PostMapping("/all")
+    @PostMapping("/allProduct")
     @ApiOperation(value = "查询全部", notes = "执行查询全部的操作")
-    public ResultData all() {
-        if(repastService.all().size()!=0) {
-            return success(repastService.all());
+    public ResultData allProduct() {
+        if(0 != repastService.allProduct().size()) {
+            return success(repastService.allProduct());
         }
         return failed();
     }

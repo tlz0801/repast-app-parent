@@ -13,11 +13,12 @@
     <packaging>pom</packaging>
     <modules>
         <module>102-repast-app-provider-8081</module>
+        <module>102-repast-app-provider-8085</module>
     </modules>
     <dependencies>
         <dependency>
             <groupId>com.aaa.eight.app</groupId>
-            <artifactId>102-repast-app-config</artifactId>
+            <artifactId>102-repast-app-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

@@ -45,4 +45,7 @@
     <result column="detail_html" property="detailHtml" jdbcType="LONGVARCHAR" />
     <result column="detail_mobile_html" property="detailMobileHtml" jdbcType="LONGVARCHAR" />
   </resultMap>
+  <select id="findAll" resultMap="BaseResultMap" resultType="com.aaa.eight.app.model.Product">
+    select * from pms_product;
+  </select>
 </mapper>

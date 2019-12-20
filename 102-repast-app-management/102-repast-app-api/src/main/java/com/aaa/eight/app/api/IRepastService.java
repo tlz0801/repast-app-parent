@@ -16,6 +16,6 @@ import java.util.List;
 @FeignClient(value = "product-interface-provider", fallbackFactory = RepastFallback.class)
 public interface IRepastService {
 
-    @PostMapping("/all")
-    List<Product> all();
+    @PostMapping("/allProduct")
+    List<Product> allProduct();
 }

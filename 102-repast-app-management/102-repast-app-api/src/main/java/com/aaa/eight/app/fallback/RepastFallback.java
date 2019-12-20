@@ -19,7 +19,7 @@ public class RepastFallback implements FallbackFactory<IRepastService> {
         IRepastService repastService = new IRepastService(){
 
             @Override
-            public List<Product> all() {
+            public List<Product> allProduct() {
                 System.out.println("测试登录熔断数据");
                 return null;
             }

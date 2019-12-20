@@ -18,8 +18,9 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping("/all")
-    public List<Product> all() {
-            return  productService.getMapper().selectAll();
+    @PostMapping("/allProduct")
+    public List<Product> allProduct() {
+        return productService.getMapper().selectAll();
     }
+
 }
