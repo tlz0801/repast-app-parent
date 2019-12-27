@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
  * @Author TLZ
  * @Date Create in 2019/12/18 19:50
  **/
-/*@Component
+@Component
 @PropertySource("classpath:config/redis.properties")
 @ConfigurationProperties(prefix = "spring.redis")
-@Data*/
+@Data
 public class RedisProperties {
 
     private String nodes;

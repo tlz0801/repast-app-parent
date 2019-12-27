@@ -45,7 +45,28 @@
     <result column="detail_html" property="detailHtml" jdbcType="LONGVARCHAR" />
     <result column="detail_mobile_html" property="detailMobileHtml" jdbcType="LONGVARCHAR" />
   </resultMap>
-  <select id="findAll" resultMap="BaseResultMap" resultType="com.aaa.eight.app.model.Product">
-    select * from pms_product;
+
+  <select id="allProduct" resultMap="BaseResultMap" resultType="com.aaa.eight.app.model.Product">
+    select * from pms_product where publish_status=1;
   </select>
+  <select id="allProductByShopId" resultMap="BaseResultMap" resultType="com.aaa.eight.app.model.Product">
+    select * from pms_product where shop_id=#{shopId} and publish_status=1;
+  </select>
+
+  <select id="getAll" parameterType="com.aaa.eight.app.vo.ProductAttributeSkuStockCategoryVo" resultType="com.aaa.eight.app.vo.ProductAttributeSkuStockCategoryVo">
+      select * from(
+        select pp.id did,pp.name dname,pp.shop_id cid,pp.brand_id,pp.product_category_id,
+        pp.product_sn,pp.publish_status,pp.new_status,pp.recommand_status,pp.sale,pp.price,
+        pp.promotion_price,pp.gift_point,pp.sub_title,pp.description,pp.original_price,pp.stock pstock,
+        pp.service_ids,pp.note,pp.album_id,pp.detail_html,pp.detail_title,pp.detail_mobile_html,
+        pp.promotion_start_time,pp.promotion_end_time,pp.promotion_per_limit,pp.promotion_type,
+        pp.brand_name,pp.product_category_name,pp.currency,ppa.id aid,ppa.shop_id hid,ppa.product_attribute_category_id,
+        ppa.name aname,ppa.select_type,ppa.type,pps.id bid,pps.stock,pps.sale ssale,pps.promotion_price mprice,
+        pps.shop_id xid,pps.product_id uid,pps.sku_code,pps.price sprice,ppc.id zid,ppc.name,ppc.shop_id oid,
+        ppc.parent_id eid, ppc.level,ppc.icon,ppc.description pdescription
+    from pms_product pp left join pms_product_attribute  ppa on pp.id = ppa.id
+    left join pms_sku_stock  pps on pp.id = pps.id left join pms_product_category ppc on pp.id = ppc.id
+    ) as a where did = #{id}
+  </select>
+
 </mapper>

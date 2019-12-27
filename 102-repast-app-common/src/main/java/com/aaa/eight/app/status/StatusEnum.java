@@ -15,7 +15,11 @@ public enum StatusEnum {
     DICTIONARY_DELETE("6", "数据字典被删除"),
     UPDATE_OPERATION("7", "修改操作"),
     DELETE_OPERATION("8", "删除操作"),
-    INSERT_OPERATION("9", "新增操作");
+    INSERT_OPERATION("9", "新增操作"),
+
+    REDIS_FAILED("10", "redis数据失败"),
+    REDIS_EXCEPTION("11", "redis异常"),
+    SYSTEM_EXCEPTION("12", "系统正在维护，请稍后再试");
 
     StatusEnum(String code, String msg) {
         this.code = code;

@@ -83,5 +83,19 @@ public class BaseController {
         return resultData;
     }
 
+    protected ResultData getTokenFailed(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(LoginStatus.LOGIN_FAILED.getCode());
+        resultData.setMsg(LoginStatus.LOGIN_FAILED.getMsg());
+        return resultData;
+    }
+
     // TODO 暂时未完成，需要什么方法自己添加
+
+    protected ResultData failed(String msg){
+        ResultData resultData = new ResultData();
+        resultData.setCode(LoginStatus.NO_DATA.getCode());
+        resultData.setMsg(msg);
+        return resultData;
+    }
 }

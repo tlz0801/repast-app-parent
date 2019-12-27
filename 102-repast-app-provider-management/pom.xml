@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>102-repast-app-provider-8081</module>
-        <module>102-repast-app-provider-8085</module>
     </modules>
     <dependencies>
         <dependency>

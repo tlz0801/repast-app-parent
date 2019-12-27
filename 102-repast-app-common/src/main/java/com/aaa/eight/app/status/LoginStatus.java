@@ -14,7 +14,8 @@ public enum LoginStatus {
     PASSWORD_WRONG("405", "密码错误"),
     LOGOUT_WRONG("403", "用户退出异常"),
     USER_HAS_PERMISSION("202", "用户拥有登录权限"),
-    USER_HAS_NOT_PERMISSION("406", "用户没有登录权限");
+    USER_HAS_NOT_PERMISSION("406", "用户没有登录权限"),
+    NO_DATA("407","没有查询到相关数据");
 
     LoginStatus(String code, String msg) {
         this.code = code;
