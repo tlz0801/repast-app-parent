@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.eight.app.mapper.SmsAdvertiseMapper" >
+  <resultMap id="BaseResultMap" type="com.aaa.eight.app.model.SmsAdvertise" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="position_id" property="positionId" jdbcType="BIGINT" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="click_count" property="clickCount" jdbcType="INTEGER" />
+    <result column="order_count" property="orderCount" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectSmsAdvertise" resultType="com.aaa.eight.app.vo.AdvertisePositionVO">
+     select a.id,ap.type,ap.name addrName, ap.descrition,ap.max_count maxCount, shop_id shopId, a.name  advertiseName, position_id positionId,
+     pic, start_time startTime, end_time endTime,status, click_count clickCount, order_count orderCount, url, note, sort
+    from sms_advertise a inner join sms_advertise_position ap on a.position_id=ap.id where ap.id=#{positionId} GROUP BY sort  ORDER BY sort LIMIT 0,#{maxCount}
+  </select>
+</mapper>
